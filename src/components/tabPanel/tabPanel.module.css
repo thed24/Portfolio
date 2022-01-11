@@ -1,0 +1,8 @@
+.tabPanel {
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.tabPanel ul { list-style: none; }
+
+.tabPanel li { padding-top: 20px; padding-right: 35px; }
