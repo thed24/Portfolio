@@ -7,6 +7,8 @@ import { clearErrors, loadArticles, updateWorkIndex } from '../../store/article/
 import { Alert, Box, CircularProgress, Link, Tab, Tabs, Typography } from '@mui/material';
 import Sticky from 'react-sticky-el';
 import { TabPanel } from '../tabPanel/tabPanel';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { GitHub } from '@mui/icons-material';
 
 type LandingPageProps = {
 	history: History;
@@ -122,7 +124,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 	);
 
 	const experience = (
-		<div id={'experience'} className={styles.container}>
+		<div id={'experience'} className={styles.finalContainer}>
 			<Typography color={'primary'} variant={'h2'} gutterBottom={true}>
 				{' '}
 				My Experience{' '}
@@ -200,8 +202,19 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 		</div>
 	);
 
+	const contactIcons = (
+		<div className={styles.contactIcons}>
+			<a href={'https://www.linkedin.com/in/dominic-codespoti/'} target={'_blank'}>
+				<LinkedInIcon color="primary" fontSize="large" />
+			</a>
+			<a href={'https://github.com/thed24'} target={'_blank'}>
+				<GitHub color="primary" fontSize="large" />
+			</a>
+		</div>
+	);
+
 	return (
-		<>
+		<div>
 			<Sticky>
 				<NavBar />
 			</Sticky>
@@ -210,7 +223,8 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 			{about}
 			{articles}
 			{experience}
-		</>
+			{contactIcons}
+		</div>
 	);
 };
 
