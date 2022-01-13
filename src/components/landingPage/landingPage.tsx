@@ -36,9 +36,9 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 
 	if (props.loading) {
 		return (
-			<div className={styles.container}>
+			<Box className={styles.centerScreen}>
 				<CircularProgress />
-			</div>
+			</Box>
 		);
 	}
 
@@ -55,7 +55,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 	);
 
 	const title = (
-		<div className={styles.container}>
+		<div id={'title'} className={styles.container}>
 			<Typography color={'primary'} variant={'h2'}>
 				{' '}
 				I'm Dominic Codespoti!{' '}

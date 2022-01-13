@@ -9,20 +9,20 @@ type NavBarLink = {
 
 export const navElements = [
 	{
+		id: 'title',
+		name: 'The Title',
+	} as NavBarLink,
+	{
 		id: 'about',
-		name: 'About',
+		name: 'About Me',
 	} as NavBarLink,
 	{
 		id: 'work',
-		name: 'Work',
+		name: 'My Work',
 	} as NavBarLink,
 	{
 		id: 'experience',
-		name: 'Experience',
-	} as NavBarLink,
-	{
-		id: 'contact',
-		name: 'Contact',
+		name: 'My Experience',
 	} as NavBarLink,
 ];
 
@@ -39,7 +39,7 @@ export function NavBar() {
 									to={element.id}
 									spy={true}
 									smooth={true}
-									offset={-100}
+									offset={-255}
 									duration={500}
 								>
 									<Typography color={'secondary'}> {element.name} </Typography>
