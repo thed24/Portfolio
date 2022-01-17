@@ -1,4 +1,5 @@
 import { Configuration } from 'webpack';
+import { default as MiniCssExtractPlugin } from 'mini-css-extract-plugin';
 
 const config: Configuration = {
 	mode: 'development',
@@ -7,6 +8,7 @@ const config: Configuration = {
 			{
 				exclude: /(node_modules)/,
 				loader: 'babel-loader',
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
 				test: /\.[tj]sx?$/,
 			},
 		],
