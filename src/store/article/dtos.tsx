@@ -95,3 +95,31 @@ export type GitHubOwner = {
 	type: string;
 	site_admin: boolean;
 };
+
+export type User = {
+	url: string;
+	title: string;
+	link: string;
+	author: string;
+	description: string;
+	image: string;
+};
+
+export type Item = {
+	title: string;
+	pubDate: string;
+	link: string;
+	guid: string;
+	author: string;
+	thumbnail: string;
+	description: string;
+	content: string;
+	enclosure: any;
+	categories: string[];
+};
+
+export type RssFeed = {
+	status: string;
+	user: User;
+	items: Item[];
+};

@@ -108,12 +108,12 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 				{props.articles.map((article) => {
 					return (
 						<div className={styles.article}>
-							<Link variant="h5" color="primary" underline="hover" href={article.link}>
-								{article.name}
+							<Link align="center" variant="h5" color="primary" underline="hover" href={article.link}>
+								{`${article.name}`}
 							</Link>
 
 							<br />
-							<Typography variant={'body2'} color={'secondary'}>
+							<Typography align="center" variant={'body2'} color={'secondary'}>
 								{article.description}
 							</Typography>
 						</div>
