@@ -34,7 +34,7 @@
     "mini-css-extract-plugin": "2.4.5"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=460 start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
