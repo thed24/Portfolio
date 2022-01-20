@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/171a5f7d-a177-4c04-bf3b-08c08126a9f9/resourceGroups/rg_thed24_portfolio/providers/Microsoft.Web/sites/webapp-thed24-portfolio",
+    "appService.deploySubpath": "."
+}
