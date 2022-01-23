@@ -21,6 +21,7 @@
     "@types/react-sticky": "^6.0.4",
     "@types/react-sticky-el": "^1.0.3",
     "connected-react-router": "^6.9.2",
+    "create-react-app": "^5.0.0",
     "history": "^4.10.1",
     "mini-css-extract-plugin": "2.4.5",
     "react": "^17.0.2",
