@@ -2,7 +2,8 @@
   "name": "thed24-portfolio",
   "version": "1.1.0",
   "engines": {
-    "node": "14.17.0"
+    "node": "16.13.2",
+    "npm": "8.1.2"
   },
   "private": true,
   "dependencies": {
