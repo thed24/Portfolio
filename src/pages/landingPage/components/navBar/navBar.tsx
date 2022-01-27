@@ -29,7 +29,7 @@ export const navElements = [
 export function NavBar() {
 	return (
 		<>
-			<AppBar color="primary" position="static">
+			<AppBar color="primary" position="static" className={styles.blocker}>
 				<Container maxWidth="xl">
 					<Toolbar disableGutters className={styles.navBar}>
 						{navElements.map((element) => {

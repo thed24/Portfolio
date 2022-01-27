@@ -7,7 +7,7 @@ import { ConnectedRouter } from 'connected-react-router';
 import { theme } from './theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { Route, Switch } from 'react-router-dom';
-import landingPage from './components/landingPage/landingPage';
+import landingPage from './pages/landingPage/landingPage';
 
 type MainProps = {
 	store: Store<ApplicationState>;

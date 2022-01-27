@@ -1,14 +1,15 @@
 import { History } from 'history';
-import { NavBar } from '../navBar/navBar';
+import { NavBar } from './components/navBar/navBar';
 import styles from './landingPage.module.css';
 import { connect, useDispatch } from 'react-redux';
 import { ApplicationState } from '../../store/index';
 import { clearErrors, loadArticles, updateWorkIndex } from '../../store/article/action';
-import { Alert, Box, CircularProgress, Link, Tab, Tabs, Typography } from '@mui/material';
+import { Alert, Box, CircularProgress, Link, List, ListItem, Paper, Tab, Tabs, Typography } from '@mui/material';
 import Sticky from 'react-sticky-el';
-import { TabPanel } from '../tabPanel/tabPanel';
+import { TabPanel } from './components/tabPanel/tabPanel';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { GitHub } from '@mui/icons-material';
+import ArticleCard from './components/articleCard/articleCard';
 
 type LandingPageProps = {
 	history: History;
@@ -44,7 +45,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 		);
 	}
 
-	const alertForError = props.errors.length !== 0 && (
+	const alert = props.errors.length !== 0 && (
 		<Alert
 			className={styles.alert}
 			severity="error"
@@ -91,7 +92,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 				</Typography>
 			</div>
 			<div className={styles.subContainer}>
-				<img className={styles.photo} width={375} height={250} src={require('../../images/Grad.JPG')} />
+				<img className={styles.photo} width={375} height={250} src={require('./images/Grad.JPG')} />
 			</div>
 		</div>
 	);
@@ -104,22 +105,25 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 					My Work{' '}
 				</Typography>
 			</div>
-			<div className={styles.articles}>
-				{props.articles.map((article) => {
-					return (
-						<div className={styles.article}>
-							<Link align="center" variant="h5" color="primary" underline="hover" href={article.link}>
-								{`${article.name}`}
-							</Link>
-
-							<br />
-							<Typography align="center" variant={'body2'} color={'secondary'}>
-								{article.description}
-							</Typography>
-						</div>
-					);
-				})}
-			</div>
+			<Paper
+				className={styles.list}
+				style={{
+					backgroundColor: '#9A57DE',
+					maxHeight: 500,
+					maxWidth: 400,
+					margin: 'auto',
+					overflow: 'auto',
+					position: 'relative',
+				}}
+			>
+				<List color="primary">
+					{props.articles.map((a) => (
+						<ListItem style={{ width: '77%' }}>
+							<ArticleCard article={a}></ArticleCard>
+						</ListItem>
+					))}
+				</List>
+			</Paper>
 		</>
 	);
 
@@ -218,7 +222,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 			<Sticky>
 				<NavBar />
 			</Sticky>
-			{alertForError}
+			{alert}
 			{title}
 			{about}
 			{articles}
