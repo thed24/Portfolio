@@ -1,4 +1,4 @@
-import { ArticleActionTypes, Article } from './types';
+import { ArticleActionTypes, Article, SiteFilter } from './types';
 import { ActionCreator, Action, Dispatch } from 'redux';
 import { ThunkAction } from 'redux-thunk';
 import { ApplicationState } from '../index';
@@ -19,6 +19,15 @@ export const updateWorkIndex: AppThunk = (index: number) => {
 		dispatch({
 			type: ArticleActionTypes.UPDATE_EXPERIENCE_TAB_INDEX,
 			payload: index,
+		});
+	};
+};
+
+export const setArticleFilter: AppThunk = (site: SiteFilter) => {
+	return async (dispatch: Dispatch) => {
+		dispatch({
+			type: ArticleActionTypes.SET_ARTICLE_FILTER,
+			payload: site,
 		});
 	};
 };

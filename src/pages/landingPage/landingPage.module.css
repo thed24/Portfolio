@@ -11,6 +11,7 @@
   flex-direction: column;
   margin-top: 200px;
   margin-bottom: 800px;
+  padding-left: 20px;
   overflow: hidden;
   border-left: 1px solid;
   border-right: 1px solid;
@@ -91,4 +92,31 @@
   align-items: center;
   text-align: center;
   padding-bottom: 100px;
+}
+
+.list {
+  padding: 10px;
+}
+
+.radioButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 15px;
+}
+
+.radioButtons2 {
+  width: 25%;
+  margin: auto;
+  padding-bottom: 10px;
+}
+
+:global(*){
+    -ms-overflow-style: none;
+}
+:global(::-webkit-scrollbar) {
+    display: none;
 }

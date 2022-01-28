@@ -6,6 +6,7 @@ export const initialState: ArticleState = {
 	errors: [],
 	loading: false,
 	experienceTabIndex: 0,
+	filter: 'both',
 };
 
 const reducer: Reducer<ArticleState> = (state = initialState, action) => {
@@ -25,6 +26,9 @@ const reducer: Reducer<ArticleState> = (state = initialState, action) => {
 		}
 		case ArticleActionTypes.CLEAR_ERRORS: {
 			return { ...state, errors: [] };
+		}
+		case ArticleActionTypes.SET_ARTICLE_FILTER: {
+			return { ...state, filter: action.payload };
 		}
 		case ArticleActionTypes.UPDATE_EXPERIENCE_TAB_INDEX: {
 			return { ...state, experienceTabIndex: action.payload };

@@ -3,8 +3,21 @@ import { NavBar } from './components/navBar/navBar';
 import styles from './landingPage.module.css';
 import { connect, useDispatch } from 'react-redux';
 import { ApplicationState } from '../../store/index';
-import { clearErrors, loadArticles, updateWorkIndex } from '../../store/article/action';
-import { Alert, Box, CircularProgress, Link, List, ListItem, Paper, Tab, Tabs, Typography } from '@mui/material';
+import { clearErrors, loadArticles, updateWorkIndex, setArticleFilter } from '../../store/article/action';
+import {
+	Alert,
+	Box,
+	CircularProgress,
+	FormControlLabel,
+	Grid,
+	Link,
+	Paper,
+	Radio,
+	RadioGroup,
+	Tab,
+	Tabs,
+	Typography,
+} from '@mui/material';
 import Sticky from 'react-sticky-el';
 import { TabPanel } from './components/tabPanel/tabPanel';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -20,12 +33,14 @@ const mapState = (state: ApplicationState) => ({
 	loading: state.article.loading,
 	errors: state.article.errors,
 	experienceIndex: state.article.experienceTabIndex,
+	filter: state.article.filter,
 });
 
 const mapDispatch = {
 	loadArticles,
 	clearErrors,
 	updateWorkIndex,
+	setArticleFilter,
 };
 
 export type ConnectedLandingPageProps = LandingPageProps & ReturnType<typeof mapState>;
@@ -105,24 +120,42 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 					My Work{' '}
 				</Typography>
 			</div>
+			<div className={styles.radioButtons}>
+				<RadioGroup
+					row
+					aria-labelledby="demo-radio-buttons-group-label"
+					defaultValue="female"
+					name="radio-buttons-group"
+					value={props.filter}
+					onChange={(event: React.SyntheticEvent, newValue: string) => {
+						dispatch(setArticleFilter(newValue));
+					}}
+				>
+					<FormControlLabel value="both" control={<Radio />} label="Both" />
+					<FormControlLabel value="medium" control={<Radio />} label="Medium" />
+					<FormControlLabel value="gitHub" control={<Radio />} label="GitHub" />
+				</RadioGroup>
+			</div>
 			<Paper
 				className={styles.list}
 				style={{
 					backgroundColor: '#9A57DE',
-					maxHeight: 500,
-					maxWidth: 400,
+					maxHeight: 600,
+					maxWidth: 900,
 					margin: 'auto',
 					overflow: 'auto',
 					position: 'relative',
 				}}
 			>
-				<List color="primary">
-					{props.articles.map((a) => (
-						<ListItem style={{ width: '77%' }}>
-							<ArticleCard article={a}></ArticleCard>
-						</ListItem>
-					))}
-				</List>
+				<Grid className={styles.list} container spacing={{ xs: 1 }} columns={{ xs: 4, sm: 8 }}>
+					{props.articles
+						.filter((a) => (props.filter === 'both' ? a : a.site.toUpperCase() === props.filter.toUpperCase()))
+						.map((a, index) => (
+							<Grid item xs={2} sm={4} md={4} key={index}>
+								<ArticleCard article={a} />
+							</Grid>
+						))}
+				</Grid>
 			</Paper>
 		</>
 	);
@@ -137,7 +170,6 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 				<Tabs
 					value={props.experienceIndex}
 					onChange={(event: React.SyntheticEvent, newValue: number) => {
-						console.log(newValue);
 						dispatch(updateWorkIndex(newValue));
 					}}
 				>
