@@ -113,7 +113,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 	);
 
 	const articles = (
-		<>
+		<div className={styles.experience}>
 			<div className={styles.titleContainer} id={'work'}>
 				<Typography color={'primary'} variant={'h2'} gutterBottom={true}>
 					{' '}
@@ -157,7 +157,7 @@ const LandingPage = (props: ConnectedLandingPageProps) => {
 						))}
 				</Grid>
 			</Paper>
-		</>
+		</div>
 	);
 
 	const experience = (

@@ -13,10 +13,12 @@ export default function ArticleCard(props: ArticleCardProps) {
 	return (
 		<Card sx={{ minWidth: 275, backgroundColor: '#282a36' }}>
 			<CardContent>
-				<Typography variant="h5" component="div">
+				<Typography color={'primary'} variant="h5" component="div">
 					{props.article.name}
 				</Typography>
-				<Typography variant="body2">{props.article.description}</Typography>
+				<Typography color={'secondary'} variant="body2">
+					{props.article.description}
+				</Typography>
 			</CardContent>
 			<CardActions>
 				<Button size="small" href={props.article.link}>

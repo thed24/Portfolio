@@ -120,3 +120,8 @@
 :global(::-webkit-scrollbar) {
     display: none;
 }
+
+.experience {
+  margin: auto;
+  padding: 20px;
+}
