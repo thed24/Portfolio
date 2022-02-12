@@ -6,6 +6,10 @@ This project was initially bootstrapped with [Create React App](https://github.c
 
 This site is currently being hosted in Azure, [click here](https://webapp-thed24-portfolio.azurewebsites.net/) to have a look!
 
+## Sneak Peak
+
+![Short GIF of some of the site](https://github.com/thed24/Redux-Portfolio/blob/main/public/Animation.gif)
+
 ## Run Locally
 ### `npm start`
 
