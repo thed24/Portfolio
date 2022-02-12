@@ -4,7 +4,7 @@ This project was initially bootstrapped with [Create React App](https://github.c
 
 ## View Online
 
-This site is currently being hosted in Heroku, [click here](https://thed24-portfolio.herokuapp.com/) to have a look!
+This site is currently being hosted in Azure, [click here](https://webapp-thed24-portfolio.azurewebsites.net/) to have a look!
 
 ## Run Locally
 ### `npm start`
